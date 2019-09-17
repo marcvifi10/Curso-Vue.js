@@ -1,0 +1,64 @@
+<html>
+	<head>
+		<title>1</title>
+		<meta charset="utf8">
+	</head>
+	<body>
+		<div id="app">
+			<h1>EJEMPLO</h1>
+			<h2>{{ titulo }}</h2>
+			<ul>
+				<li v-for="fruta of frutas">{{ fruta }}</li>
+			</ul>
+			<ul>
+				<li v-for="caracteristica of caracteristicas">
+					{{ caracteristica.cantidad }} - {{ caracteristica.nombre }}
+					<span v-if="caracteristica.cantidad === 0"> - Sin stock</span>
+				</li>
+			</ul>
+			<input type="text" v-model="nuevaFruta">
+			<button v-on:click="agregarFruta">CLICK!!</button>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script>
+		
+			const app = new Vue({
+			
+				el: '#app',
+				data: {
+				
+					titulo: 'Hola mundo con Vue',
+					frutas: ["Manzana","Pera","Plátano"],
+					caracteristicas: [
+					
+						{nombre: 'A', cantidad:0},
+						{nombre: 'B', cantidad:1},
+						{nombre: 'D', cantidad:1},
+					
+					],
+					
+					nuevaFruta: ''
+				
+				},
+				
+				methods: {
+				
+					agregarFruta()
+					{
+					
+						console.log('Ejemplo');
+						this.caracteristicas.push({
+						
+							nombre: this.nuevaFruta, cantidad: 0
+							
+						})
+					
+					}
+					
+				}
+			
+			})
+		
+		</script>
+	</body>
+</html>

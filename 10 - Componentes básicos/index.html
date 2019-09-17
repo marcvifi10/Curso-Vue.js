@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+		<title>EJEMPLO</title>
+	</head>
+	<body>
+		<div id="app" class="container">
+			<saludo></saludo>
+			<contador></contador>
+			<h1>{{ saludo }}</h1>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script>
+		
+			Vue.component('saludo',{
+			
+				template: 
+				`
+				
+					<div>
+						<h1>{{ saludo }}</h1>
+						<h3>H3</h3>
+					</div>
+				
+				`,
+				data()
+				{
+				
+					return{
+					
+						saludo: 'Hola desde Vue'
+					
+					}
+				
+				}
+			
+			}),
+			
+			Vue.component('contador',{
+			
+				template: 
+				`
+				
+					<div>
+						<h1>{{ numero }}</h1>
+						<button @click="numero++">+</button>
+					</div>
+				
+				`,
+				data()
+				{
+				
+					return{
+					
+						numero: 0
+					
+					}
+				
+				}
+			
+			})
+		
+			const app = new Vue({
+			
+				el: '#app',
+			
+			});
+		
+		</script>
+	</body>
+</html>
